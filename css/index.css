@@ -1,0 +1,37 @@
+:root{
+
+    /* Colores */
+    --primario: #9c2309;
+    --secundario: #FFFFFF;
+    --negro: #000000;
+
+    /* Fuente de letra */
+    --FuentePrincipal: 'Staatliches', cursive;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+
+/* Globales */
+
+header{
+    background-color: var(--primario);
+}
+
+body{
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p{
+    font-size: 1.8rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color: var(--secundario);
+}
