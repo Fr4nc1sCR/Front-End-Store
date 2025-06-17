@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,105 @@
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
 </head>
-<body>
-    <header>
 
+<body>
+    <header class="header">
+        <a href="index.html"><img src="img/logo.png" alt="logotipo"></a>
+
+        <div class="busqueda">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+            </svg>
+
+            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
+        </div>
+
+        <nav class="navegador-principal">
+            <a href="">Inicio</a>
+            <a href="">Sobre Nosotros</a>
+            <a href="">Productos</a>
+        </nav>
     </header>
 
     <main>
 
+        <section class="bienvenida">
+            <div class="content-item scroll-fade">
+                <h2>¡Bienvenidos a Side Street!</h2>
+                <p>
+                    En Side Street, no solo hacemos pizzas: creamos momentos inolvidables.
+                    Te damos la bienvenida a nuestra pizzería, donde la pasión por el
+                    sabor auténtico, los ingredientes frescos y la atención al detalle
+                    se combinan para brindarte una experiencia deliciosa en cada bocado.
+                    Ya sea que vengas solo, con amigos o en familia, aquí siempre
+                    encontrarás calor, sabor y una porción perfecta para vos.
+                </p>
+                <br>
+                <h3>¿Por qué elegirnos?</h3>
+                <ul class="lista-razones">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M3 3h18v18H3V3zm3 3v12h12V6H6z" />
+                        </svg>
+                        <span><strong>Pizzas artesanales:</strong> horneadas al momento con masa fresca todos los
+                            días.</span>
+                    </li>
+
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <span><strong>Ingredientes frescos:</strong> usamos productos locales y seleccionados con
+                            esmero.</span>
+                    </li>
+
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>Entrega rápida:</strong> garantizamos que llegue caliente y a tiempo.</span>
+                    </li>
+
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span><strong>Precios justos:</strong> combos accesibles para toda la familia.</span>
+                    </li>
+
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                d="M12 11c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-4 .9-4 2v1h8v-1c0-1.1-2.9-2-4-2z" />
+                        </svg>
+                        <span><strong>Atención personalizada:</strong> te atendemos como si fueras de casa.</span>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="imagenes-activas scroll-fade">
+                <img src="img/pizza-index1.png" alt="Pizza 1" class="img-collage img-1">
+                <img src="img/pizza-index2.png" alt="Pizza 2" class="img-collage img-2">
+                <img src="img/pizza-index3.png" alt="Pizza 3" class="img-collage img-3">
+            </div>
+        </section>
+
+
     </main>
 
-    <footer>
-
+    <footer class="footer">
+        <p>&copy; Todos los derechos reservados. Julián Quesada Víquez 2025</p>
     </footer>
+
+    <script src="javascript/img.js"></script>
 </body>
+
 </html>
