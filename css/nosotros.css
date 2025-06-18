@@ -1,0 +1,244 @@
+/* Variables Personalizables */
+
+:root{
+
+    /* Colores */
+    --primario: #9c2309;
+    --secundario: #FFFFFF;
+    --negro: #000000;
+    --primarioOscuro: #6b2c1f;
+
+    /* Fuente de letra */
+    --FuentePrincipal: 'Staatliches', cursive;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+
+/* Globales */
+
+header{
+    background-color: var(--primario);
+}
+
+body{
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secundario);
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+h1, h2, h3{
+    text-align: center;
+    color: var(--primario);
+    font-family: var(--FuentePrincipal);
+}
+
+h1{ font-size: 4rem; }
+h2{ font-size: 3.2rem; }
+h3{ font-size: 2.4rem; }
+
+/* Header */
+
+.encabezado{
+    top: 0;                     /* Pega el header al tope de la pantalla */
+    z-index: 1000;              /* Asegura que esté por encima del contenido */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7rem;
+    padding-right: 2rem;
+    background-color: var(--primario);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Opcional para separar visualmente */
+    position: sticky;           /* Para que se quede pegado arriba al hacer scroll */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Clase cuando el header se oculta */
+.encabezado.oculto {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Clase cuando el header está visible */
+.encabezado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.encabezado img{
+    max-height: 45%;
+    max-width: 45%;
+    padding-left: 5rem;
+    padding-top: .5rem;
+}
+
+.encabezado .busqueda{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    padding-top: .2rem;
+}
+
+.encabezado .busqueda input[type="text"]{
+    border-radius: .5rem;
+    border-style: none;
+    margin-top: .5rem;
+    text-align: center;
+}
+
+.encabezado .busqueda svg{
+    height: 3.2rem;
+    stroke: var(--secundario);
+}
+
+.encabezado .navegador-principal{
+    display: flex;
+    gap: 2rem;
+    height: 100%;
+}
+
+.encabezado .navegador-principal a{
+    display: flex;
+    color: var(--secundario);
+    padding: 2rem 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 1; /* Asegura que el texto quede por encima del fondo */
+    align-items: center;
+    justify-content: center;
+}
+
+.encabezado .navegador-principal a::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--secundario);
+    z-index: -1; /* Detrás del texto */
+    transition: zoom 0.3s ease;
+}
+
+.encabezado .navegador-principal a:hover{
+    transform: scale(1.09);
+    color: var(--primario);
+}
+
+.encabezado .navegador-principal a:hover::before{
+    top: 0;
+    height: 100%;
+}
+
+/* Main Content */
+
+.contenido-nosotros {
+    max-width: 1000px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+section {
+    margin-bottom: 5rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-left: 5px solid var(--primario);
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+section h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primarioOscuro);
+}
+
+section p {
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.historia img{
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fundador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.fundador img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .fundador {
+        flex-direction: row;
+    }
+
+    .fundador p {
+        flex: 1;
+    }
+}
+
+/* Footer */
+.footer{
+    background-color: var(--primario);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.footer p{
+    font-size: 1.5rem;
+    margin: 0 auto;
+}

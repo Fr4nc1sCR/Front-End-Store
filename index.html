@@ -24,15 +24,23 @@
             <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
         </div>
 
-        <nav class="navegador-principal">
-            <a href="">Inicio</a>
-            <a href="">Sobre Nosotros</a>
-            <a href="">Productos</a>
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+
+        <nav class="navegador-principal" id="nav-menu">
+            <div class="busqueda escondido-temporal">
+                <h3 class="escondido-temporal">Buscador</h3>
+                <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
+            </div>
+
+            <h3 class="escondido-temporal">Menu</h3>
+            <a href="index.html">Inicio</a>
+            <a href="paginas/nosotros.html">Sobre Nosotros</a>
+            <a href="paginas/cartelera.html">Productos</a>
         </nav>
     </header>
 
     <main>
-
         <section class="bienvenida">
             <div class="content-item scroll-fade">
                 <h2>¡Bienvenidos a Side Street!</h2>
@@ -45,7 +53,7 @@
                     encontrarás calor, sabor y una porción perfecta para vos.
                 </p>
                 <br>
-                <h3>¿Por qué elegirnos?</h3>
+                <h2>¿Por qué elegirnos?</h2>
                 <ul class="lista-razones">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
@@ -113,7 +121,8 @@
                     <p>Sabor urbano, alma de pizza</p>
                 </div>
 
-                <input type="submit" value="¡Ordenar Ya!" class="boton-fondo" onclick="window.location.href=''">
+                <input type="submit" value="¡Ordenar Ya!" class="boton-fondo"
+                    onclick="window.location.href='paginas/cartelera.html'">
             </div>
         </section>
 
@@ -142,7 +151,8 @@
                     </div>
 
                     <div class="card-reseña">
-                        <p>"Un espacio perfecto para ir en familia, además del excelente servicio al cliente y la comida 100% calidad!"
+                        <p>"Un espacio perfecto para ir en familia, además del excelente servicio al cliente y la comida
+                            100% calidad!"
                         </p>
                         <div class="estrellas">★★★★★</div>
                         <span>– Matías Q.</span>
@@ -159,6 +169,7 @@
 
     <script src="javascript/carrusel.js"></script>
     <script src="javascript/img.js"></script>
+    <script src="javascript/boton-nav.js"></script>
     <script src="javascript/header-scroll.js"></script>
 </body>
 
