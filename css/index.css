@@ -59,7 +59,7 @@ h3{ font-size: 2.4rem; }
 
 /* Header */
 
-.header{
+.encabezado{
     top: 0;                     /* Pega el header al tope de la pantalla */
     z-index: 1000;              /* Asegura que esté por encima del contenido */
     display: flex;
@@ -73,14 +73,26 @@ h3{ font-size: 2.4rem; }
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.header img{
+/* Clase cuando el header se oculta */
+.encabezado.oculto {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Clase cuando el header está visible */
+.encabezado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.encabezado img{
     max-height: 45%;
     max-width: 45%;
     padding-left: 5rem;
     padding-top: .5rem;
 }
 
-.header .busqueda{
+.encabezado .busqueda{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,25 +100,25 @@ h3{ font-size: 2.4rem; }
     padding-top: .2rem;
 }
 
-.header .busqueda input[type="text"]{
+.encabezado .busqueda input[type="text"]{
     border-radius: .5rem;
     border-style: none;
     margin-top: .5rem;
     text-align: center;
 }
 
-.header .busqueda svg{
+.encabezado .busqueda svg{
     height: 3.2rem;
     stroke: var(--secundario);
 }
 
-.header .navegador-principal{
+.encabezado .navegador-principal{
     display: flex;
     gap: 2rem;
     height: 100%;
 }
 
-.header .navegador-principal a{
+.encabezado .navegador-principal a{
     display: flex;
     color: var(--secundario);
     padding: 2rem 2rem;
@@ -116,7 +128,7 @@ h3{ font-size: 2.4rem; }
     justify-content: center;
 }
 
-.header .navegador-principal a::before{
+.encabezado .navegador-principal a::before{
     content: "";
     position: absolute;
     top: 100%;
@@ -128,12 +140,12 @@ h3{ font-size: 2.4rem; }
     transition: zoom 0.3s ease;
 }
 
-.header .navegador-principal a:hover{
+.encabezado .navegador-principal a:hover{
     transform: scale(1.09);
     color: var(--primario);
 }
 
-.header .navegador-principal a:hover::before{
+.encabezado .navegador-principal a:hover::before{
     top: 0;
     height: 100%;
 }
@@ -183,6 +195,8 @@ h3{ font-size: 2.4rem; }
     width: 24px;
     height: 24px;
 }
+
+/* Collage para las imágenes */
 
 .imagenes-activas {
   position: relative;
@@ -241,13 +255,160 @@ h3{ font-size: 2.4rem; }
   transform: translateY(0);
 }
 
+/* Fondo Ordená-Ya */
+
+.ordenar-ya{
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 53rem;
+}
+
+.ordenar-ya .contenedor-fondo{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ordenar-ya .contenedor-fondo h2{
+    font-size: 9rem;
+    color: var(--secundario);
+    font-weight: 400;
+    padding-top: 5rem;
+    margin-bottom: 1rem;
+}
+
+.ordenar-ya .contenedor-fondo .slogan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ordenar-ya .contenedor-fondo .slogan p{
+    margin-top: 3rem;
+    padding-bottom: .6rem;
+    font-size: 2rem;
+}
+
+.ordenar-ya .contenedor-fondo .slogan svg{
+   stroke: var(--secundario);
+   height: 3rem;
+   width: 3rem;
+}
+
+.ordenar-ya .contenedor-fondo .boton-fondo{
+    background-color: var(--primario);
+    display: flex;
+    justify-content: center;     /* centra el texto dentro del botón */
+    align-items: center;         /* centra verticalmente el texto */
+    height: 5rem;
+    width: 11.5rem;
+    border-radius: 1.8rem;
+    border-style: hidden;
+    font-weight: 550;
+    color: var(--secundario);
+    margin: 6rem auto; /* <-- esto lo centra horizontalmente */
+    margin-top: 3.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ordenar-ya .contenedor-fondo .boton-fondo:hover{
+    background-color: var(--secundario);
+    color: var(--primario);
+    cursor: pointer;
+}
+
+/* Reseñas */
+
+.reseñas {
+    background-color: #fff;
+    padding: 5rem 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.reseñas h2 {
+    font-size: 4rem;
+    color: var(--primarioOscuro); /* Asegúrate que esta variable exista */
+    margin-bottom: 3rem;
+    font-family: 'Staatliches', cursive;
+}
+
+/* NUEVO: contenedor externo del carrusel */
+.reseñas-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* NUEVO: pista que se desliza horizontalmente */
+.reseñas-carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-carousel 40s linear infinite;
+}
+
+/* NUEVO: pausa al hacer hover */
+.reseñas-carousel:hover .reseñas-carousel-track {
+    animation-play-state: paused;
+}
+
+/* ACTUALIZADO: adaptado al carrusel */
+.reseñas .card-reseña {
+    flex: 0 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 2rem;
+    width: 30rem;
+    font-size: 1.6rem;
+    color: #333;
+    transition: transform 0.3s ease;
+    margin: 0 1rem;
+}
+
+.reseñas .card-reseña:hover {
+    transform: translateY(-5px);
+}
+
+.reseñas .card-reseña span {
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: var(--primario);
+}
+
+.reseñas .card-reseña p {
+    color: var(--negro);
+}
+
+.reseñas .card-reseña .estrellas {
+    color: #FFD700; /* amarillo dorado */
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem 0;
+    letter-spacing: 0.2rem;
+}
+
+/* NUEVO: animación del carrusel */
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* Footer */
 .footer{
     background-color: var(--primario);
-    height: 4rem;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
 }
 
 .footer p{
