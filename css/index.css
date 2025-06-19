@@ -666,9 +666,15 @@ h3 {
         height: 10rem;
     }
 
+    .encabezado a{
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    
     .encabezado img {
         max-height: 55%;
         max-width: 55%;
+        padding-left: 2rem;
     }
 
     .encabezado .navegador-principal {
