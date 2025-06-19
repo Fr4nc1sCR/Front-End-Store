@@ -376,7 +376,7 @@ h3 {
     color: var(--primarioOscuro);
     /* Asegúrate que esta variable exista */
     margin-bottom: 3rem;
-    font-family: 'Staatliches', cursive;
+    font-family: var(--FuentePrincipal);
 }
 
 /* NUEVO: contenedor externo del carrusel */
@@ -585,8 +585,10 @@ h3 {
 
     .encabezado .navegador-principal .busqueda input[type="text"] {
         width: 100%; /* Se adapta al contenedor */
-        max-width: 30rem; /* No se pasa de 26rem en pantallas grandes */
-        font-size: 2.2rem; /* Ajustado para móviles */
+        max-width: 30rem;
+        /* No se pasa de 26rem en pantallas grandes */
+        font-size: 2.2rem;
+        /* Ajustado para móviles */
         padding: 0.5rem 1rem;
         box-sizing: border-box;
     }
@@ -606,19 +608,19 @@ h3 {
         margin-top: 13rem;
     }
 
-    .bienvenida .content-item h2{
+    .bienvenida .content-item h2 {
         font-size: 5rem;
     }
 
-    .bienvenida .content-item p{
+    .bienvenida .content-item p {
         font-size: 3rem;
     }
 
-    .bienvenida .content-item .lista-razones{
+    .bienvenida .content-item .lista-razones {
         padding: 0;
     }
 
-    .bienvenida .content-item .lista-razones li{
+    .bienvenida .content-item .lista-razones li {
         font-size: 3rem;
         text-align: justify;
     }
@@ -636,12 +638,123 @@ h3 {
     }
 }
 
-@media (width: 868px) {
+@media (max-width: 868px) {
 
     /* Ordenar-Yá */
 
-    .ordenar-ya .contenedor-fondo h2{
+    .ordenar-ya .contenedor-fondo h2 {
         font-size: 8rem;
         padding-top: 4rem;
     }
+}
+
+@media (max-width: 805px) {
+
+    /* Ordenar-Yá */
+
+    .ordenar-ya .contenedor-fondo h2 {
+        font-size: 7rem;
+        padding-top: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Encabezado */
+
+    .encabezado {
+        height: 10rem;
+    }
+
+    .encabezado img {
+        max-height: 55%;
+        max-width: 55%;
+    }
+
+    .encabezado .navegador-principal {
+        width: 55%;
+        margin-top: 10rem;
+    }
+
+    /* Bienvenida */
+
+    .bienvenida {
+        height: 135rem;
+    }
+
+    .bienvenida .content-item {
+        margin-top: 10rem;
+    }
+
+    .bienvenida .content-item h2 {
+        font-size: 4rem;
+    }
+
+    .bienvenida .content-item p {
+        font-size: 1.8rem;
+    }
+
+    .bienvenida .content-item .lista-razones li {
+        font-size: 1.7rem;
+        margin: auto 3rem;
+    }
+
+    .bienvenida .imagenes-activas {
+        margin: 4rem auto;
+    }
+
+    .bienvenida .imagenes-activas .img-collage {
+        width: 140px;
+        height: 140px;
+    }
+
+    .bienvenida .imagenes-activas .img-1 {
+        left: 8%;
+    }
+
+    .bienvenida .imagenes-activas .img-2 {
+        top: 10%;
+        left: 33%;
+    }
+
+    .bienvenida .imagenes-activas .img-3 {
+        top: 0;
+        right: 8%;
+    }
+
+    /* Ordená-Ya */
+
+    .ordenar-ya .contenedor-fondo h2 {
+        font-size: 5rem;
+        padding-top: 6rem;
+    }
+    
+    .ordenar-ya .contenedor-fondo .slogan svg {
+        stroke: var(--secundario);
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .ordenar-ya .contenedor-fondo .slogan p {
+        margin-top: 3rem;
+        padding-bottom: .6rem;
+        font-size: 1.7rem;
+    }
+
+    .ordenar-ya .contenedor-fondo .boton-fondo{
+        height: 4rem;
+        width: 11rem;
+    }
+
+    .ordenar-ya .contenedor-fondo .boton-fondo::placeholder{
+        font-size: 1.7rem;
+    }
+
+    /* Footer */
+
+    .footer p {
+        font-size: 1.2rem;
+        margin: 0 auto;
+    }
+
 }
