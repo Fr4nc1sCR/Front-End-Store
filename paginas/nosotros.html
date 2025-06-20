@@ -12,7 +12,7 @@
 
 <body>
     <header class="encabezado">
-        <a href="../index.html"><img src="../img/logo.png" alt="logotipo"></a>
+        <a href="index.html"><img src="../img/logo.png" alt="logotipo"></a>
 
         <div class="busqueda">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
@@ -24,10 +24,19 @@
             <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
         </div>
 
-        <nav class="navegador-principal">
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+
+        <nav class="navegador-principal" id="nav-menu">
+            <div class="busqueda escondido-temporal">
+                <h3 class="escondido-temporal">Buscador</h3>
+                <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
+            </div>
+
+            <h3 class="escondido-temporal">Menu</h3>
             <a href="../index.html">Inicio</a>
-            <a href="nosotros.html">Sobre Nosotros</a>
-            <a href="cartelera.html">Productos</a>
+            <a href="paginas/nosotros.html">Sobre Nosotros</a>
+            <a href="paginas/cartelera.html">Productos</a>
         </nav>
     </header>
 
@@ -44,20 +53,20 @@
             </p>
         </section>
 
-        <!-- Punto 3: Nuestro equipo -->
+        <!-- Punto 2: Nuestro equipo -->
         <section class="equipo fade-in">
-            <h2>Quiénes Somos</h2>
             <div class="fundador">
-                <img src="../img/chef.png" alt="Foto del fundador o chef principal">
+                <h2>Quiénes Somos</h2>
                 <p>
                     Detrás de cada pizza está nuestro chef fundador, Marco Rossi, un apasionado por la cocina italiana y
                     por compartir sabores auténticos. Junto a un equipo comprometido, creamos cada receta con dedicación
                     y frescura.
                 </p>
             </div>
+            <img src="../img/chef.png" alt="Foto del fundador o chef principal">
         </section>
 
-        <!-- Punto 9: Inspiración del nombre -->
+        <!-- Punto 3: Inspiración del nombre -->
         <section class="inspiracion fade-in">
             <h2>¿Por qué Side Street?</h2>
             <p>
@@ -75,6 +84,7 @@
 
     <script src="../javascript/efecto-nosotros.js"></script>
     <script src="../javascript/header-scroll.js"></script>
+    <script src="../javascript/boton-nav.js"></script>
 </body>
 
 </html>

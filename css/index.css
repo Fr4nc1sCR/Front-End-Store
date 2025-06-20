@@ -463,7 +463,7 @@ h3 {
 
 /* Media Queries */
 
-/* Tablets (768px o menos) */
+/* Tablets */
 @media (max-width: 1440px) {
 
     /* Encabezado */
@@ -638,6 +638,7 @@ h3 {
     }
 }
 
+/* Tablets pero con el titulo de Ordená-Ya bien colocado */
 @media (max-width: 868px) {
 
     /* Ordenar-Yá */
@@ -648,6 +649,8 @@ h3 {
     }
 }
 
+/* Tablets pero con el titulo de Ordená-Ya bien colocado */
+
 @media (max-width: 805px) {
 
     /* Ordenar-Yá */
@@ -657,6 +660,8 @@ h3 {
         padding-top: 6rem;
     }
 }
+
+/* Celulares */
 
 @media (max-width: 768px) {
 
