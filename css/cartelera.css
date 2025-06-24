@@ -273,6 +273,7 @@ h3 {
 
 .info-pizza h3 {
     font-size: 2.5rem;
+    margin-top: 0;
     margin-bottom: 0.5rem;
     color: var(--rojo);
 }
@@ -284,11 +285,17 @@ h3 {
     text-align: center;
 }
 
+.info-precio-boton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
 .precio {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: 600;
     display: block;
-    margin-bottom: 1rem;
 }
 
 .btn-ordenar {
@@ -304,7 +311,8 @@ h3 {
 }
 
 .btn-ordenar:hover {
-    background-color: #21867a;
+    background-color: var(--primarioOscuro);
+    color: var(--secundario);
 }
 
 /* Paginación */
