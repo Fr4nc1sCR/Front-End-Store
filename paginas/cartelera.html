@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Street Julián Quesada Víquez</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/cartelera.css">
+</head>
+
+<body>
+    <header class="encabezado">
+        <a href="../index.html"><img src="../img/logo.png" alt="logotipo"></a>
+
+        <div class="busqueda">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+            </svg>
+
+            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí" onkeyup="filtrarPizzas()">
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+
+        <nav class="navegador-principal" id="nav-menu">
+            <div class="busqueda escondido-temporal">
+                <h3 class="escondido-temporal">Buscador</h3>
+                <input type="text" name="busqueda" id="busqueda-menu" placeholder="Consulte el producto aquí" onkeyup="filtrarPizzas()">
+            </div>
+
+            <h3 class="escondido-temporal">Menu</h3>
+            <a href="../index.html">Inicio</a>
+            <a href="nosotros.html">Sobre Nosotros</a>
+            <a href="cartelera.html">Productos</a>
+        </nav>
+    </header>
+
+    <main class="contenido-cartelera">
+        <h2 class="titulo-cartelera">Cartelera de Pizzas</h2>
+
+        <!-- Filtros por categoría -->
+        <div class="filtros">
+            <button onclick="filtrarCategoria('todas')">Todas</button>
+            <button onclick="filtrarCategoria('favorita')">Favoritas</button>
+            <button onclick="filtrarCategoria('clasica')">Clásicas</button>
+            <button onclick="filtrarCategoria('vegetariana')">Vegetarianas</button>
+            <button onclick="filtrarCategoria('carnivora')">Carnívoras</button>
+            <button onclick="filtrarCategoria('especial')">Especiales</button>
+        </div>
+
+        <div class="contenedor-pizzas">
+            <div class="pizza-card clasica">
+                <img src="../img/margarita.png" alt="Pizza Margarita">
+                <div class="info-pizza">
+                    <h3>Margarita</h3>
+                    <p>Salsa de tomate, mozzarella fresca, albahaca y aceite de oliva extra virgen.</p>
+                    <span class="precio">₡5.500</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card clasica favorita">
+                <img src="../img/pepperoni.png" alt="Pizza Pepperoni">
+                <div class="info-pizza">
+                    <h3>Pepperoni</h3>
+                    <p>Salsa de tomate, queso mozzarella y abundantes rodajas de pepperoni.</p>
+                    <span class="precio">₡6.000</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card clasica favorita">
+                <img src="../img/hawaiana.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Hawaiana</h3>
+                    <p>Jamón, piña y queso mozzarella sobre salsa de tomate.</p>
+                    <span class="precio">₡6.200</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card clasica favorita">
+                <img src="../img/cuatro-quesos.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Cuatro Quesos</h3>
+                    <p>Mezcla de mozzarella, parmesano, gorgonzola y queso suizo.</p>
+                    <span class="precio">₡6.800</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card vegetariana favorita">
+                <img src="../img/vegetariana.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Vegetariana Deluxe</h3>
+                    <p>Pimientos, cebolla morada, aceitunas negras, champiñones y tomates cherry.</p>
+                    <span class="precio">₡6.500</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card vegetariana">
+                <img src="../img/espinaca-ricota.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Espinaca y Ricotta</h3>
+                    <p>Base blanca con mozzarella, espinaca salteada, ricotta fresca y ajo.</p>
+                    <span class="precio">₡6.800</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card vegetariana">
+                <img src="../img/caprese.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Caprese</h3>
+                    <p>Mozzarella, rodajas de tomate, albahaca fresca y reducción de balsámico.</p>
+                    <span class="precio">₡6.700</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card carnivora">
+                <img src="../img/carnivora.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Carnívora</h3>
+                    <p>Jamón, pepperoni, salchicha italiana, tocineta y carne molida.</p>
+                    <span class="precio">₡7.200</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card carnivora">
+                <img src="../img/bqq-pollo.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>BBQ Pollo</h3>
+                    <p>Pollo a la parrilla, salsa BBQ, cebolla morada y mozzarella.</p>
+                    <span class="precio">₡6.900</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <div class="pizza-card carnivora">
+                <img src="../img/tocineta-lovers.png" alt="Pizza Hawaiana">
+                <div class="info-pizza">
+                    <h3>Tocineta Lovers</h3>
+                    <p>Base de queso con doble tocineta, cebolla caramelizada y un toque de maple.</p>
+                    <span class="precio">₡6.800</span>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+
+            <!-- Paginación -->
+            <div class="paginacion" id="paginacion"></div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Todos los derechos reservados. Julián Quesada Víquez 2025</p>
+    </footer>
+
+    <script src="../javascript/efecto-nosotros.js"></script>
+    <script src="../javascript/header-scroll.js"></script>
+    <script src="../javascript/boton-nav.js"></script>
+    <script src="../javascript/filtrar-pizzas.js"></script>
+    <script src="../javascript/paginacion.js"></script>
+
+</body>
+
+</html>
