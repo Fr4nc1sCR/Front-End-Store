@@ -1,0 +1,498 @@
+/* Variables Personalizables */
+
+:root {
+
+    /* Colores */
+    --primario: #9c2309;
+    --secundario: #FFFFFF;
+    --negro: #000000;
+    --primarioOscuro: #6b2c1f;
+
+    /* Fuente de letra */
+    --FuentePrincipal: 'Staatliches', cursive;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/* Globales */
+
+header {
+    background-color: var(--primario);
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secundario);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: var(--primario);
+    font-family: var(--FuentePrincipal);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+/* Header */
+
+.encabezado {
+    top: 0;
+    /* Pega el header al tope de la pantalla */
+    z-index: 1000;
+    /* Asegura que esté por encima del contenido */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+    padding-right: 2rem;
+    background-color: var(--primario);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Opcional para separar visualmente */
+    position: sticky;
+    /* Para que se quede pegado arriba al hacer scroll */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Clase cuando el header se oculta */
+.encabezado.oculto {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Clase cuando el header está visible */
+.encabezado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.encabezado a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.encabezado img {
+    max-height: 45%;
+    max-width: 45%;
+}
+
+.encabezado .busqueda {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    padding-top: .2rem;
+}
+
+.encabezado .busqueda input[type="text"] {
+    border-radius: .5rem;
+    border-style: none;
+    margin-top: .5rem;
+    text-align: center;
+}
+
+.encabezado .busqueda svg {
+    height: 3.2rem;
+    stroke: var(--secundario);
+}
+
+.encabezado .navegador-principal {
+    display: flex;
+    gap: 2rem;
+    height: 100%;
+}
+
+.encabezado .navegador-principal a {
+    display: flex;
+    color: var(--secundario);
+    padding: 2rem 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 1;
+    /* Asegura que el texto quede por encima del fondo */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+}
+
+.encabezado .navegador-principal a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--secundario);
+    z-index: -1;
+    /* Detrás del texto */
+    transition: zoom 0.3s ease;
+}
+
+.encabezado .navegador-principal a:hover {
+    transform: scale(1.09);
+    color: var(--primario);
+}
+
+.encabezado .navegador-principal a:hover::before {
+    top: 0;
+    height: 100%;
+}
+
+/* Menu Desplegable */
+
+.encabezado .menu-toggle {
+    display: none;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.encabezado .navegador-principal .escondido-temporal {
+    display: none;
+}
+
+/* Main Content */
+
+/* Contenido Pizza */
+
+.contenido-cartelera {
+    background-color: var(--secundario);
+    width: 93%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    box-shadow: 5px 5px 29px 7px #000000;
+    padding: 0 4rem 4rem 4rem;
+    border-radius: 1rem;
+}
+
+.titulo-cartelera {
+    font-size: 4rem;
+    padding: 2rem 2rem;
+    margin-bottom: 0;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.filtros button {
+    background-color: var(--primario);
+    color: var(--secundario);
+    font-family: var(--FuentePrincipal);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filtros button:hover {
+    background-color: var(--primarioOscuro);
+}
+
+.filtros button.activo {
+    background-color: var(--primarioOscuro);
+}
+
+.contenedor-pizzas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.pizza-card {
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    opacity: 1; /* 👈 Necesario para que el cambio a 0 sea transicionable */
+  transition: opacity 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pizza-card.ocultando {
+  opacity: 0;
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.pizza-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info-pizza {
+    padding: 1.5rem;
+}
+
+.info-pizza h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--rojo);
+}
+
+.info-pizza p {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.btn-ordenar {
+    display: inline-block;
+    background-color: var(--primario);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ordenar:hover {
+    background-color: #21867a;
+}
+
+/* Paginación */
+
+.paginacion {
+    margin-top: 3rem;
+}
+
+.paginacion button {
+    background-color: var(--primario);
+    color: var(--secundario);
+    font-family: var(--FuentePrincipal);
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.paginacion button:hover,
+.paginacion button.activo {
+    background-color: var(--primarioOscuro);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primario);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.footer p {
+    font-size: 1.5rem;
+    margin: 0 auto;
+}
+
+
+/* Tablets */
+
+@media (max-width: 1065px) {
+    
+    body{
+        margin-top: 20rem;
+    }
+    
+    /* Encabezado */
+
+    .encabezado {
+        top: 0;
+        /* Pega el header al tope de la pantalla */
+        z-index: 1000;
+        /* Asegura que esté por encima del contenido */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 13rem;
+        padding-right: 2rem;
+        background-color: var(--primario);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        /* Opcional para separar visualmente */
+        position: fixed;
+        /* Para que se quede pegado arriba al hacer scroll */
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        width: 100%;
+        left: 0;
+    }
+
+    .encabezado a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .encabezado img {
+        max-height: 75%;
+        max-width: 75%;
+    }
+
+    .encabezado .busqueda {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: .5rem;
+        padding-top: .2rem;
+    }
+
+    .encabezado .busqueda input[type="text"] {
+        border-radius: .5rem;
+        border-style: none;
+        margin-top: .5rem;
+        text-align: center;
+    }
+
+    .encabezado .busqueda svg {
+        height: 40px;
+        width: 40px;
+        stroke: var(--secundario);
+    }
+
+    /* Menu Desplegable */
+
+    .encabezado .menu-toggle {
+        display: flex;
+        height: auto;
+        align-items: end;
+    }
+
+    .encabezado .navegador-principal {
+        position: fixed;
+        right: 0;
+        width: 40%;
+        max-width: 400px;
+        margin-top: 13rem;
+        height: 100vh;
+        padding: 3rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        background-color: var(--primario);
+        /* semi-transparente */
+        backdrop-filter: blur(10px);
+        /* efecto frosted glass */
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        border-top-left-radius: 1.5rem;
+        border-bottom-left-radius: 1.5rem;
+        top: 0;
+    }
+
+    .encabezado .navegador-principal.active {
+        transform: translateX(0);
+    }
+
+    .encabezado .navegador-principal .escondido-temporal {
+        display: block;
+        font-size: 3.5rem;
+        color: var(--negro);
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .encabezado .navegador-principal a {
+        font-size: 2.2rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.315);
+        transition: all 0.3s ease;
+        padding: 0.8rem 0;
+    }
+
+    .encabezado .navegador-principal a:hover {
+        border-radius: 0.5rem;
+        padding-left: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .encabezado .navegador-principal .busqueda h3 {
+        margin-bottom: .8rem;
+    }
+
+    .encabezado .navegador-principal .busqueda input[type="text"] {
+        width: 100%; /* Se adapta al contenedor */
+        max-width: 30rem;
+        /* No se pasa de 26rem en pantallas grandes */
+        font-size: 2.2rem;
+        /* Ajustado para móviles */
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* Celulares */
+
+@media (max-width: 768px) {
+
+    /* Footer */
+
+    .footer p {
+        font-size: 1.2rem;
+        margin: 0 auto;
+    }
+
+}
