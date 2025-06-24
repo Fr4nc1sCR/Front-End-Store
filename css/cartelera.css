@@ -518,7 +518,10 @@ h3 {
     /* Main Content */
 
     .paginacion{
-        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
     }
     
     /* Footer */
