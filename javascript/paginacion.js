@@ -1,8 +1,14 @@
 const pizzas = Array.from(document.querySelectorAll('.pizza-card'));
-const pizzasPorPagina = 8;
+let pizzasPorPagina = calcularPizzasPorPagina();
 const paginacion = document.getElementById('paginacion');
-
 let categoriaActual = 'todas';
+
+function calcularPizzasPorPagina() {
+    const ancho = window.innerWidth;
+    if (ancho >= 1440) return 8;     // Pantallas grandes
+    if (ancho >= 768) return 6;      // Tablets
+    return 4;                        // Teléfonos
+}
 
 function filtrarCategoria(categoria) {
     categoriaActual = categoria;
@@ -57,6 +63,16 @@ function crearPaginacion() {
     }
 }
 
+// Recalcular cuando se redimensiona la ventana
+window.addEventListener('resize', () => {
+    const nuevoValor = calcularPizzasPorPagina();
+    if (nuevoValor !== pizzasPorPagina) {
+        pizzasPorPagina = nuevoValor;
+        crearPaginacion();
+        mostrarPagina(1);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-    filtrarCategoria('todas'); // Inicialmente muestra todas
+    filtrarCategoria('todas');
 });

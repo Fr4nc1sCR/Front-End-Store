@@ -473,14 +473,13 @@ h3 {
 
     .encabezado .navegador-principal .busqueda input[type="text"] {
         width: 100%; /* Se adapta al contenedor */
-        max-width: 30rem;
+        max-width: 35rem;
         /* No se pasa de 26rem en pantallas grandes */
         font-size: 2.2rem;
         /* Ajustado para móviles */
         padding: 0.5rem 1rem;
         box-sizing: border-box;
     }
-
 }
 
 
@@ -488,6 +487,40 @@ h3 {
 
 @media (max-width: 768px) {
 
+
+    body{
+        margin-top: 14rem;
+    }
+
+
+    /* Encabezado */
+
+    .encabezado{
+        height: 10rem;
+    }
+
+    .encabezado .navegador-principal{
+        width: 55%;
+        margin-top: 10rem;
+    }
+
+    .encabezado img {
+        max-height: 55%;
+        max-width: 55%;
+    }
+
+    .encabezado a{
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-left: 2rem;
+    }
+    
+    /* Main Content */
+
+    .paginacion{
+        margin: 0 auto;
+    }
+    
     /* Footer */
 
     .footer p {
