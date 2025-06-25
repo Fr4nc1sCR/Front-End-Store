@@ -21,7 +21,8 @@
                 <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
             </svg>
 
-            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí" onkeyup="filtrarPizzas()">
+            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí"
+                onkeyup="filtrarPizzas()">
         </div>
 
         <!-- Botón hamburguesa -->
@@ -30,7 +31,8 @@
         <nav class="navegador-principal" id="nav-menu">
             <div class="busqueda escondido-temporal">
                 <h3 class="escondido-temporal">Buscador</h3>
-                <input type="text" name="busqueda" id="busqueda-menu" placeholder="Consulte el producto aquí" onkeyup="filtrarPizzas()">
+                <input type="text" name="busqueda" id="busqueda-menu" placeholder="Consulte el producto aquí"
+                    onkeyup="filtrarPizzas()">
             </div>
 
             <h3 class="escondido-temporal">Menu</h3>
@@ -227,6 +229,28 @@
         <!-- Paginación -->
         <div class="paginacion" id="paginacion"></div>
 
+        <!-- Modal de Pedido -->
+        <div id="modalPedido" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <h2 id="tituloModal">Pedido</h2>
+                <form id="formularioPedido">
+                    <label for="nombreCliente">Nombre:</label>
+                    <input type="text" id="nombreCliente" required>
+
+                    <label for="direccionCliente">Dirección:</label>
+                    <input type="text" id="direccionCliente" required>
+
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" min="1" value="1" required>
+
+                    <input type="hidden" id="pizzaSeleccionada">
+
+                    <button type="submit">Confirmar Pedido</button>
+                </form>
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -238,6 +262,7 @@
     <script src="../javascript/boton-nav.js"></script>
     <script src="../javascript/filtrar-pizzas.js"></script>
     <script src="../javascript/paginacion.js"></script>
+    <script src="../javascript/modal.js"></script>
 
 </body>
 
