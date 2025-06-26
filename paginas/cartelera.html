@@ -236,15 +236,15 @@
                 <h2 id="tituloModal">Pedido</h2>
                 <form id="formularioPedido">
                     <label for="nombreCliente">Nombre:</label>
-                    <input type="text" id="nombreCliente" required>
+                    <input type="text" id="nombreCliente" name="nombreCliente" required>
 
                     <label for="direccionCliente">Dirección:</label>
-                    <input type="text" id="direccionCliente" required>
+                    <input type="text" id="direccionCliente" name="direccionCliente" required>
 
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" min="1" value="1" required>
+                    <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
 
-                    <input type="hidden" id="pizzaSeleccionada">
+                    <input type="hidden" id="pizzaSeleccionada" name="pizzaSeleccionada">
 
                     <button type="submit">Confirmar Pedido</button>
                 </form>
@@ -263,7 +263,8 @@
     <script src="../javascript/filtrar-pizzas.js"></script>
     <script src="../javascript/paginacion.js"></script>
     <script src="../javascript/modal.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </body>
 
 </html>

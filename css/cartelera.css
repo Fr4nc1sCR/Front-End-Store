@@ -395,6 +395,32 @@ form button {
   margin-top: 15px;
 }
 
+/* Sweet Alert */
+
+.swal2-popup.swal2-popup-custom {
+    font-size: 1.5rem !important;
+    padding: 2.5rem !important;
+    max-width: 600px !important;
+}
+
+.swal2-title.swal2-title-custom {
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+}
+
+.swal2-html-container.swal2-text-custom {
+    font-size: 1.8rem !important;
+}
+
+.swal2-confirm.swal2-button-custom {
+    font-size: 1.5rem !important;
+    padding: 1rem 2rem !important;
+    background-color: var(--primario) !important; /* Color más atractivo opcional */
+    border-radius: 8px !important;
+}
+
+/* Footer */
+
 .footer p {
     font-size: 1.5rem;
     margin: 0 auto;
