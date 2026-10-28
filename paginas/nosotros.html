@@ -1,90 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Street Julián Quesada Víquez</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/nosotros.css">
+    <title>Nosotros · Side Street</title>
+    <meta name="description" content="Conocé la historia de Side Street: una pizzería que nació en una calle lateral con una receta de familia y mucho corazón.">
+    <meta name="theme-color" content="#110d0b">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
-    <header class="encabezado">
-        <a href="../index.html"><img src="../img/logo.png" alt="logotipo"></a>
+    <header class="header" id="header">
+        <div class="header__inner contenedor">
+            <a href="../index.html" class="header__logo" aria-label="Side Street, ir al inicio">
+                <img src="../img/logo.png" alt="Side Street" width="297" height="170">
+            </a>
 
-        <div class="busqueda">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-            </svg>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <a href="../index.html" class="nav__link">Inicio</a>
+                <a href="nosotros.html" class="nav__link is-active" aria-current="page">Nosotros</a>
+                <a href="cartelera.html" class="nav__link">Cartelera</a>
+                <a href="cartelera.html" class="btn btn--primary btn--sm nav__cta">Ordenar ya</a>
+            </nav>
 
-            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-
-        <!-- Botón hamburguesa -->
-        <button class="menu-toggle" id="menu-toggle">☰</button>
-
-        <nav class="navegador-principal" id="nav-menu">
-            <div class="busqueda escondido-temporal">
-                <h3 class="escondido-temporal">Buscador</h3>
-                <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
-            </div>
-
-            <h3 class="escondido-temporal">Menu</h3>
-            <a href="../index.html">Inicio</a>
-            <a href="paginas/nosotros.html">Sobre Nosotros</a>
-            <a href="cartelera.html">Productos</a>
-        </nav>
     </header>
 
-    <main class="contenido-nosotros">
-        <!-- Punto 1: Historia del local -->
-        <section class="historia fade-in">
-            <h2>Nuestra Historia</h2>
-            <img src="../img/pizzeria.png" alt="Lugar Pizzeria">
-            <p>
-                Side Street nació como un pequeño sueño en una calle olvidada del centro. Inspirados por la pasión por
-                la pizza artesanal y el calor de los buenos momentos, comenzamos con una receta de familia y mucho
-                corazón. Lo que empezó como un local discreto, hoy es un lugar de encuentro para los amantes de la buena
-                pizza.
-            </p>
-        </section>
+    <main>
+        <!-- Historia -->
+        <section class="page-hero">
+            <div class="contenedor historia__grid">
+                <div class="historia__texto reveal">
+                    <span class="eyebrow">Nuestra historia</span>
+                    <h1 class="titulo">Nacimos en una <em>calle lateral</em></h1>
+                    <p class="lead">
+                        Side Street nació como un pequeño sueño en una calle olvidada del centro. Inspirados por
+                        la pasión por la pizza artesanal y el calor de los buenos momentos, comenzamos con una
+                        receta de familia y mucho corazón.
+                    </p>
+                    <p class="lead">
+                        Lo que empezó como un local discreto, hoy es un lugar de encuentro para los amantes de
+                        la buena pizza.
+                    </p>
+                    <div class="hero__acciones">
+                        <a href="cartelera.html" class="btn btn--primary">
+                            Probá nuestras pizzas
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        </a>
+                    </div>
+                </div>
 
-        <!-- Punto 2: Nuestro equipo -->
-        <section class="equipo fade-in">
-            <div class="fundador">
-                <h2>Quiénes Somos</h2>
-                <p>
-                    Detrás de cada pizza está nuestro chef fundador, Marco Rossi, un apasionado por la cocina italiana y
-                    por compartir sabores auténticos. Junto a un equipo comprometido, creamos cada receta con dedicación
-                    y frescura.
-                </p>
+                <div class="historia__imagen reveal" style="--delay: .15s">
+                    <img src="../img/pizzeria.png" alt="Fachada de ladrillo de la pizzería Side Street" width="1024" height="1536">
+                    <div class="collage__badge"><span>Desde<br>1984</span></div>
+                </div>
             </div>
-            <img src="../img/chef.png" alt="Foto del fundador o chef principal">
+
+            <div class="contenedor valores">
+                <article class="valor reveal">
+                    <strong>01</strong>
+                    <h3>Receta de familia</h3>
+                    <p>La misma base que nos vio nacer, perfeccionada con los años.</p>
+                </article>
+                <article class="valor reveal" style="--delay: .1s">
+                    <strong>02</strong>
+                    <h3>Hecho al momento</h3>
+                    <p>Cada pizza se arma y se hornea cuando la pedís, nunca antes.</p>
+                </article>
+                <article class="valor reveal" style="--delay: .2s">
+                    <strong>03</strong>
+                    <h3>Sabor de barrio</h3>
+                    <p>Un lugar sencillo, cercano y con las puertas siempre abiertas.</p>
+                </article>
+            </div>
         </section>
 
-        <!-- Punto 3: Inspiración del nombre -->
-        <section class="inspiracion fade-in">
-            <h2>¿Por qué Side Street?</h2>
-            <p>
-                El nombre "Side Street" representa nuestras raíces humildes: una calle lateral donde todo comenzó. Allí
-                aprendimos que los mejores momentos ocurren en los lugares más inesperados, y nuestras pizzas llevan ese
-                mismo espíritu: sencillas, auténticas y memorables.
-            </p>
+        <!-- Equipo -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="chef reveal">
+                    <div class="chef__foto">
+                        <img src="../img/chef.png" alt="Marco Rossi, chef fundador de Side Street" loading="lazy">
+                    </div>
+                    <div class="chef__texto">
+                        <span class="eyebrow">Quiénes somos</span>
+                        <h2 class="titulo">Detrás de <em>cada pizza</em></h2>
+                        <p class="lead">
+                            Detrás de cada pizza está nuestro chef fundador, Marco Rossi, un apasionado por la
+                            cocina italiana y por compartir sabores auténticos. Junto a un equipo comprometido,
+                            creamos cada receta con dedicación y frescura.
+                        </p>
+                        <div class="chef__nombre">
+                            <span class="sello">CHEF</span>
+                            <div>
+                                <strong>Marco Rossi</strong>
+                                <span>Chef fundador</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inspiración del nombre -->
+        <section class="seccion razones">
+            <div class="contenedor">
+                <div class="cita reveal">
+                    <span class="eyebrow">¿Por qué Side Street?</span>
+                    <blockquote style="margin-top: 1.5rem;">
+                        Los mejores momentos ocurren en los <em>lugares más inesperados.</em>
+                    </blockquote>
+                    <p>
+                        El nombre "Side Street" representa nuestras raíces humildes: una calle lateral donde todo
+                        comenzó. Allí aprendimos esa lección, y nuestras pizzas llevan ese mismo espíritu:
+                        sencillas, auténticas y memorables.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="cta reveal">
+                    <div>
+                        <span class="eyebrow">Vení a conocernos</span>
+                        <h2 style="margin-top: .9rem;">La mesa ya está servida</h2>
+                        <p>Descubrí las recetas que nos hicieron famosos en el barrio.</p>
+                    </div>
+                    <div class="cta__acciones">
+                        <a href="cartelera.html" class="btn btn--primary">
+                            Ver la cartelera
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-
     <footer class="footer">
-        <p>&copy; Todos los derechos reservados. Julián Quesada Víquez 2025</p>
+        <div class="contenedor footer__grid">
+            <div class="footer__marca">
+                <img src="../img/logo.png" alt="Side Street" width="297" height="170" loading="lazy">
+                <p>Sabor urbano, alma de pizza. Pizzas artesanales horneadas al momento desde 1984.</p>
+            </div>
+            <div>
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="cartelera.html">Cartelera</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Categorías</h3>
+                <ul>
+                    <li><a href="cartelera.html?categoria=clasica">Clásicas</a></li>
+                    <li><a href="cartelera.html?categoria=vegetariana">Vegetarianas</a></li>
+                    <li><a href="cartelera.html?categoria=especial">Especiales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor footer__base">
+            <p>&copy; <span data-anio>2025</span> Julián Quesada Víquez. Todos los derechos reservados.</p>
+            <p>Hecho con 🍕 y mucho código.</p>
+        </div>
     </footer>
 
-    <script src="../javascript/efecto-nosotros.js"></script>
-    <script src="../javascript/header-scroll.js"></script>
-    <script src="../javascript/boton-nav.js"></script>
+    <script src="../javascript/main.js"></script>
 </body>
 
 </html>

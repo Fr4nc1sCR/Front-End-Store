@@ -1,270 +1,430 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Street Julián Quesada Víquez</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/cartelera.css">
+    <title>Cartelera · Side Street</title>
+    <meta name="description" content="Explorá la cartelera de Side Street: pizzas clásicas, vegetarianas, carnívoras y especiales. Pedí en línea.">
+    <meta name="theme-color" content="#110d0b">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
-    <header class="encabezado">
-        <a href="../index.html"><img src="../img/logo.png" alt="logotipo"></a>
+    <header class="header" id="header">
+        <div class="header__inner contenedor">
+            <a href="../index.html" class="header__logo" aria-label="Side Street, ir al inicio">
+                <img src="../img/logo.png" alt="Side Street" width="297" height="170">
+            </a>
 
-        <div class="busqueda">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-            </svg>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <a href="../index.html" class="nav__link">Inicio</a>
+                <a href="nosotros.html" class="nav__link">Nosotros</a>
+                <a href="cartelera.html" class="nav__link is-active" aria-current="page">Cartelera</a>
+                <a href="#grid-pizzas" class="btn btn--primary btn--sm nav__cta">Ordenar ya</a>
+            </nav>
 
-            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí"
-                onkeyup="filtrarPizzas()">
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-
-        <!-- Botón hamburguesa -->
-        <button class="menu-toggle" id="menu-toggle">☰</button>
-
-        <nav class="navegador-principal" id="nav-menu">
-            <div class="busqueda escondido-temporal">
-                <h3 class="escondido-temporal">Buscador</h3>
-                <input type="text" name="busqueda" id="busqueda-menu" placeholder="Consulte el producto aquí"
-                    onkeyup="filtrarPizzas()">
-            </div>
-
-            <h3 class="escondido-temporal">Menu</h3>
-            <a href="../index.html">Inicio</a>
-            <a href="nosotros.html">Sobre Nosotros</a>
-            <a href="cartelera.html">Productos</a>
-        </nav>
     </header>
 
-    <main class="contenido-cartelera">
-        <h2 class="titulo-cartelera">Cartelera de Pizzas</h2>
+    <main>
+        <section class="page-hero">
+            <div class="contenedor reveal">
+                <span class="eyebrow">Nuestro menú</span>
+                <h1 class="titulo">Cartelera de <em>pizzas</em></h1>
+                <p class="lead">Recetas clásicas, opciones vegetarianas y especiales de la casa. Elegí la tuya y la llevamos caliente hasta tu puerta.</p>
+            </div>
+        </section>
 
-        <!-- Filtros por categoría -->
-        <div class="filtros">
-            <button onclick="filtrarCategoria('todas')">Todas</button>
-            <button onclick="filtrarCategoria('favorita')">Favoritas</button>
-            <button onclick="filtrarCategoria('clasica')">Clásicas</button>
-            <button onclick="filtrarCategoria('vegetariana')">Vegetarianas</button>
-            <button onclick="filtrarCategoria('carnivora')">Carnívoras</button>
-            <button onclick="filtrarCategoria('especial')">Especiales</button>
-        </div>
+        <section class="cartelera">
+            <div class="contenedor">
+                <div class="barra-filtros">
+                    <div class="chips" role="group" aria-label="Filtrar por categoría">
+                        <button type="button" class="chip" data-filtro="todas" aria-pressed="true">Todas <span class="chip__conteo"></span></button>
+                        <button type="button" class="chip" data-filtro="favorita" aria-pressed="false">★ Favoritas <span class="chip__conteo"></span></button>
+                        <button type="button" class="chip" data-filtro="clasica" aria-pressed="false">Clásicas <span class="chip__conteo"></span></button>
+                        <button type="button" class="chip" data-filtro="vegetariana" aria-pressed="false">Vegetarianas <span class="chip__conteo"></span></button>
+                        <button type="button" class="chip" data-filtro="carnivora" aria-pressed="false">Carnívoras <span class="chip__conteo"></span></button>
+                        <button type="button" class="chip" data-filtro="especial" aria-pressed="false">Especiales <span class="chip__conteo"></span></button>
+                    </div>
 
-        <div class="contenedor-pizzas">
-            <div class="pizza-card clasica">
-                <img src="../img/margarita.png" alt="Pizza Margarita">
-                <div class="info-pizza">
-                    <h3>Margarita</h3>
-                    <p>Salsa de tomate, mozzarella fresca, albahaca y aceite de oliva extra virgen.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡5.500</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="buscador">
+                        <label for="busqueda" class="visualmente-oculto">Buscar pizza</label>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+                        <input type="search" id="busqueda" placeholder="Buscá por nombre o ingrediente..." autocomplete="off">
                     </div>
                 </div>
-            </div>
 
-            <div class="pizza-card clasica favorita">
-                <img src="../img/pepperoni.png" alt="Pizza Pepperoni">
-                <div class="info-pizza">
-                    <h3>Pepperoni</h3>
-                    <p>Salsa de tomate, queso mozzarella y abundantes rodajas de pepperoni.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.000</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <p class="resultado-info" id="resultado-info" aria-live="polite"></p>
+
+                <div class="grid-pizzas" id="grid-pizzas">
+                <article class="pizza-card" data-categoria="clasica" data-precio="5500">
+                    <div class="pizza-card__media">
+                        <img src="../img/margarita.png" alt="Pizza Margarita" loading="lazy">
+                        <span class="etiqueta" data-tipo="clasica">Clásica</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="pizza-card clasica favorita">
-                <img src="../img/hawaiana.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Hawaiana</h3>
-                    <p>Jamón, piña y queso mozzarella sobre salsa de tomate.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.200</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Margarita</h3>
+                        <p>Salsa de tomate, mozzarella fresca, albahaca y aceite de oliva extra virgen.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡5.500</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="pizza-card clasica favorita">
-                <img src="../img/cuatro-quesos.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Cuatro Quesos</h3>
-                    <p>Mezcla de mozzarella, parmesano, gorgonzola y queso suizo.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.800</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <article class="pizza-card" data-categoria="clasica favorita" data-precio="6000">
+                    <div class="pizza-card__media">
+                        <img src="../img/pepperoni.png" alt="Pizza Pepperoni" loading="lazy">
+                        <span class="etiqueta" data-tipo="clasica">Clásica</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="pizza-card vegetariana favorita">
-                <img src="../img/vegetariana.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Vegetariana Deluxe</h3>
-                    <p>Pimientos, cebolla morada, aceitunas negras, champiñones y tomates cherry.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.500</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Pepperoni</h3>
+                        <p>Salsa de tomate, queso mozzarella y abundantes rodajas de pepperoni.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.000</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="pizza-card vegetariana">
-                <img src="../img/espinaca-ricota.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Espinaca y Ricotta</h3>
-                    <p>Base blanca con mozzarella, espinaca salteada, ricotta fresca y ajo.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.800</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <article class="pizza-card" data-categoria="clasica favorita" data-precio="6200">
+                    <div class="pizza-card__media">
+                        <img src="../img/hawaiana.png" alt="Pizza Hawaiana" loading="lazy">
+                        <span class="etiqueta" data-tipo="clasica">Clásica</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="pizza-card vegetariana">
-                <img src="../img/caprese.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Caprese</h3>
-                    <p>Mozzarella, rodajas de tomate, albahaca fresca y reducción de balsámico.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.700</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Hawaiana</h3>
+                        <p>Jamón, piña y queso mozzarella sobre salsa de tomate.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.200</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="pizza-card carnivora">
-                <img src="../img/carnivora.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Carnívora</h3>
-                    <p>Jamón, pepperoni, salchicha italiana, tocineta y carne molida.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡7.200</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <article class="pizza-card" data-categoria="clasica favorita" data-precio="6800">
+                    <div class="pizza-card__media">
+                        <img src="../img/cuatro-quesos.png" alt="Pizza Cuatro Quesos" loading="lazy">
+                        <span class="etiqueta" data-tipo="clasica">Clásica</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="pizza-card carnivora favorita">
-                <img src="../img/bqq-pollo.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>BBQ Pollo</h3>
-                    <p>Pollo a la parrilla, salsa BBQ, cebolla morada y mozzarella.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.900</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Cuatro Quesos</h3>
+                        <p>Mezcla de mozzarella, parmesano, gorgonzola y queso suizo.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.800</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="pizza-card carnivora favorita">
-                <img src="../img/tocineta-lovers.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Tocineta Lovers</h3>
-                    <p>Base de queso con doble tocineta, cebolla caramelizada y un toque de maple.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.800</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <article class="pizza-card" data-categoria="vegetariana favorita" data-precio="6500">
+                    <div class="pizza-card__media">
+                        <img src="../img/vegetariana.png" alt="Pizza Vegetariana Deluxe" loading="lazy">
+                        <span class="etiqueta" data-tipo="vegetariana">Vegetariana</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="pizza-card especial favorita">
-                <img src="../img/pesto.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Pesto de Pollo</h3>
-                    <p>Base de pesto casero, pollo a la parrilla, mozzarella y tomates secos.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡7.000</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Vegetariana Deluxe</h3>
+                        <p>Pimientos, cebolla morada, aceitunas negras, champiñones y tomates cherry.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.500</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="pizza-card especial">
-                <img src="../img/mar-tierra.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Mar y Tierra</h3>
-                    <p>Camarones al ajillo, tocineta crujiente, queso mozzarella y cilantro fresco.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡7.500</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <article class="pizza-card" data-categoria="vegetariana" data-precio="6800">
+                    <div class="pizza-card__media">
+                        <img src="../img/espinaca-ricota.png" alt="Pizza Espinaca y Ricotta" loading="lazy">
+                        <span class="etiqueta" data-tipo="vegetariana">Vegetariana</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="pizza-card especial">
-                <img src="../img/la-tica.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>La Tica</h3>
-                    <p>Chorizo criollo, natilla, queso tierno y chile dulce</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡6.800</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Espinaca y Ricotta</h3>
+                        <p>Base blanca con mozzarella, espinaca salteada, ricotta fresca y ajo.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.800</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="pizza-card especial favorita">
-                <img src="../img/funghi.png" alt="Pizza Hawaiana">
-                <div class="info-pizza">
-                    <h3>Funghi Trufado</h3>
-                    <p>Champiñones salteados, mozzarella y un toque de aceite de trufa.</p>
-                    <div class="info-precio-boton">
-                        <span class="precio">₡7.200</span>
-                        <button class="btn-ordenar">Ordenar</button>
+                <article class="pizza-card" data-categoria="vegetariana" data-precio="6700">
+                    <div class="pizza-card__media">
+                        <img src="../img/caprese.png" alt="Pizza Caprese" loading="lazy">
+                        <span class="etiqueta" data-tipo="vegetariana">Vegetariana</span>
                     </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Caprese</h3>
+                        <p>Mozzarella, rodajas de tomate, albahaca fresca y reducción de balsámico.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.700</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="carnivora" data-precio="7200">
+                    <div class="pizza-card__media">
+                        <img src="../img/carnivora.png" alt="Pizza Carnívora" loading="lazy">
+                        <span class="etiqueta" data-tipo="carnivora">Carnívora</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Carnívora</h3>
+                        <p>Jamón, pepperoni, salchicha italiana, tocineta y carne molida.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡7.200</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="carnivora favorita" data-precio="6900">
+                    <div class="pizza-card__media">
+                        <img src="../img/bqq-pollo.png" alt="Pizza BBQ Pollo" loading="lazy">
+                        <span class="etiqueta" data-tipo="carnivora">Carnívora</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>BBQ Pollo</h3>
+                        <p>Pollo a la parrilla, salsa BBQ, cebolla morada y mozzarella.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.900</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="carnivora favorita" data-precio="6800">
+                    <div class="pizza-card__media">
+                        <img src="../img/tocineta-lovers.png" alt="Pizza Tocineta Lovers" loading="lazy">
+                        <span class="etiqueta" data-tipo="carnivora">Carnívora</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Tocineta Lovers</h3>
+                        <p>Base de queso con doble tocineta, cebolla caramelizada y un toque de maple.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.800</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="especial favorita" data-precio="7000">
+                    <div class="pizza-card__media">
+                        <img src="../img/pesto.png" alt="Pizza Pesto de Pollo" loading="lazy">
+                        <span class="etiqueta" data-tipo="especial">Especial</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Pesto de Pollo</h3>
+                        <p>Base de pesto casero, pollo a la parrilla, mozzarella y tomates secos.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡7.000</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="especial" data-precio="7500">
+                    <div class="pizza-card__media">
+                        <img src="../img/mar-tierra.png" alt="Pizza Mar y Tierra" loading="lazy">
+                        <span class="etiqueta" data-tipo="especial">Especial</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Mar y Tierra</h3>
+                        <p>Camarones al ajillo, tocineta crujiente, queso mozzarella y cilantro fresco.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡7.500</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="especial" data-precio="6800">
+                    <div class="pizza-card__media">
+                        <img src="../img/la-tica.png" alt="Pizza La Tica" loading="lazy">
+                        <span class="etiqueta" data-tipo="especial">Especial</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>La Tica</h3>
+                        <p>Chorizo criollo, natilla, queso tierno y chile dulce.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡6.800</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pizza-card" data-categoria="especial favorita" data-precio="7200">
+                    <div class="pizza-card__media">
+                        <img src="../img/funghi.png" alt="Pizza Funghi Trufado" loading="lazy">
+                        <span class="etiqueta" data-tipo="especial">Especial</span>
+                        <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                    </div>
+                    <div class="pizza-card__cuerpo">
+                        <h3>Funghi Trufado</h3>
+                        <p>Champiñones salteados, mozzarella y un toque de aceite de trufa.</p>
+                        <div class="pizza-card__pie">
+                            <span class="precio">₡7.200</span>
+                            <button type="button" class="btn btn--primary btn--sm btn-ordenar">
+                                Ordenar
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
                 </div>
+
+                <div class="estado-vacio" id="estado-vacio" hidden>
+                    <div class="estado-vacio__emoji" aria-hidden="true">🍕</div>
+                    <h3>No encontramos esa pizza</h3>
+                    <p>Probá con otro ingrediente o revisá todas nuestras recetas.</p>
+                    <button type="button" class="btn btn--ghost" id="limpiar-filtros">Ver todas las pizzas</button>
+                </div>
+
+                <nav class="paginacion" id="paginacion" aria-label="Paginación"></nav>
             </div>
-
-        </div>
-
-        <!-- Paginación -->
-        <div class="paginacion" id="paginacion"></div>
-
-        <!-- Modal de Pedido -->
-        <div id="modalPedido" class="modal">
-            <div class="modal-contenido">
-                <span class="cerrar" onclick="cerrarModal()">&times;</span>
-                <h2 id="tituloModal">Pedido</h2>
-                <form id="formularioPedido">
-                    <label for="nombreCliente">Nombre:</label>
-                    <input type="text" id="nombreCliente" name="nombreCliente" required>
-
-                    <label for="direccionCliente">Dirección:</label>
-                    <input type="text" id="direccionCliente" name="direccionCliente" required>
-
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
-
-                    <input type="hidden" id="pizzaSeleccionada" name="pizzaSeleccionada">
-
-                    <button type="submit">Confirmar Pedido</button>
-                </form>
-            </div>
-        </div>
-
+        </section>
     </main>
 
+    <!-- Modal de pedido -->
+    <dialog class="modal" id="modal-pedido" aria-labelledby="modal-titulo">
+        <div class="modal__media">
+            <img id="modal-imagen" src="" alt="">
+            <button type="button" class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+            </button>
+        </div>
+
+        <div class="modal__cuerpo">
+            <span class="eyebrow">Tu pedido</span>
+            <h2 id="modal-titulo" style="margin-top: .6rem;">Pizza</h2>
+            <p id="modal-precio"></p>
+
+            <form id="formularioPedido" class="formulario">
+                <div class="campo">
+                    <label for="nombreCliente">Nombre</label>
+                    <input type="text" id="nombreCliente" name="nombreCliente" placeholder="¿A nombre de quién?" autocomplete="name" required>
+                </div>
+
+                <div class="campo">
+                    <label for="direccionCliente">Dirección</label>
+                    <input type="text" id="direccionCliente" name="direccionCliente" placeholder="¿A dónde la llevamos?" autocomplete="street-address" required>
+                </div>
+
+                <div class="campo-fila">
+                    <div class="campo">
+                        <label for="cantidad">Cantidad</label>
+                        <div class="stepper">
+                            <button type="button" data-paso="-1" aria-label="Quitar una">−</button>
+                            <input type="number" id="cantidad" name="cantidad" min="1" max="20" value="1" required>
+                            <button type="button" data-paso="1" aria-label="Agregar una">+</button>
+                        </div>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <strong id="total-pedido">₡0</strong>
+                    </div>
+                </div>
+
+                <input type="hidden" id="pizzaSeleccionada" name="pizzaSeleccionada">
+
+                <button type="submit" class="btn btn--primary btn--block">
+                    Confirmar pedido
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </button>
+            </form>
+        </div>
+    </dialog>
+
     <footer class="footer">
-        <p>&copy; Todos los derechos reservados. Julián Quesada Víquez 2025</p>
+        <div class="contenedor footer__grid">
+            <div class="footer__marca">
+                <img src="../img/logo.png" alt="Side Street" width="297" height="170" loading="lazy">
+                <p>Sabor urbano, alma de pizza. Pizzas artesanales horneadas al momento desde 1984.</p>
+            </div>
+            <div>
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="cartelera.html">Cartelera</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Categorías</h3>
+                <ul>
+                    <li><a href="cartelera.html?categoria=clasica">Clásicas</a></li>
+                    <li><a href="cartelera.html?categoria=vegetariana">Vegetarianas</a></li>
+                    <li><a href="cartelera.html?categoria=especial">Especiales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor footer__base">
+            <p>&copy; <span data-anio>2025</span> Julián Quesada Víquez. Todos los derechos reservados.</p>
+            <p>Hecho con 🍕 y mucho código.</p>
+        </div>
     </footer>
 
-    <script src="../javascript/efecto-nosotros.js"></script>
-    <script src="../javascript/header-scroll.js"></script>
-    <script src="../javascript/boton-nav.js"></script>
-    <script src="../javascript/filtrar-pizzas.js"></script>
-    <script src="../javascript/paginacion.js"></script>
-    <script src="../javascript/modal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+    <script src="../javascript/main.js"></script>
+    <script src="../javascript/cartelera.js"></script>
 </body>
 
 </html>

@@ -1,182 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Street Julián Quesada Víquez</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css">
+    <title>Side Street · Pizzería artesanal</title>
+    <meta name="description" content="Side Street: pizzas artesanales horneadas al momento, ingredientes frescos y sabor urbano desde 1984.">
+    <meta name="theme-color" content="#110d0b">
+    <link rel="icon" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
-    <header class="encabezado">
-        <a href="index.html"><img src="img/logo.png" alt="logotipo"></a>
+    <header class="header" id="header">
+        <div class="header__inner contenedor">
+            <a href="index.html" class="header__logo" aria-label="Side Street, ir al inicio">
+                <img src="img/logo.png" alt="Side Street" width="297" height="170">
+            </a>
 
-        <div class="busqueda">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-            </svg>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <a href="index.html" class="nav__link is-active" aria-current="page">Inicio</a>
+                <a href="paginas/nosotros.html" class="nav__link">Nosotros</a>
+                <a href="paginas/cartelera.html" class="nav__link">Cartelera</a>
+                <a href="paginas/cartelera.html" class="btn btn--primary btn--sm nav__cta">Ordenar ya</a>
+            </nav>
 
-            <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-
-        <!-- Botón hamburguesa -->
-        <button class="menu-toggle" id="menu-toggle">☰</button>
-
-        <nav class="navegador-principal" id="nav-menu">
-            <div class="busqueda escondido-temporal">
-                <h3 class="escondido-temporal">Buscador</h3>
-                <input type="text" name="busqueda" id="busqueda" placeholder="Consulte el producto aquí">
-            </div>
-
-            <h3 class="escondido-temporal">Menu</h3>
-            <a href="index.html">Inicio</a>
-            <a href="paginas/nosotros.html">Sobre Nosotros</a>
-            <a href="paginas/cartelera.html">Productos</a>
-        </nav>
     </header>
 
     <main>
-        <section class="bienvenida">
-            <div class="content-item scroll-fade">
-                <h2>¡Bienvenidos a Side Street!</h2>
-                <p>
-                    En Side Street, no solo hacemos pizzas: creamos momentos inolvidables.
-                    Te damos la bienvenida a nuestra pizzería, donde la pasión por el
-                    sabor auténtico, los ingredientes frescos y la atención al detalle
-                    se combinan para brindarte una experiencia deliciosa en cada bocado.
-                    Ya sea que vengas solo, con amigos o en familia, aquí siempre
-                    encontrarás calor, sabor y una porción perfecta para vos.
-                </p>
-                <br>
-                <h2>¿Por qué elegirnos?</h2>
-                <ul class="lista-razones">
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path d="M3 3h18v18H3V3zm3 3v12h12V6H6z" />
-                        </svg>
-                        <span><strong>Pizzas artesanales:</strong> horneadas al momento con masa fresca todos los
-                            días.</span>
-                    </li>
-
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <span><strong>Ingredientes frescos:</strong> usamos productos locales y seleccionados con
-                            esmero.</span>
-                    </li>
-
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span><strong>Entrega rápida:</strong> garantizamos que llegue caliente y a tiempo.</span>
-                    </li>
-
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                        <span><strong>Precios justos:</strong> combos accesibles para toda la familia.</span>
-                    </li>
-
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                d="M12 11c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-4 .9-4 2v1h8v-1c0-1.1-2.9-2-4-2z" />
-                        </svg>
-                        <span><strong>Atención personalizada:</strong> te atendemos como si fueras de casa.</span>
-                    </li>
-
-                </ul>
-
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero__fondo">
+                <img src="img/fondo.png" alt="" fetchpriority="high">
             </div>
-            <div class="imagenes-activas scroll-fade">
-                <img src="img/pizza-index1.png" alt="Pizza 1" class="img-collage img-1">
-                <img src="img/pizza-index2.png" alt="Pizza 2" class="img-collage img-2">
-                <img src="img/pizza-index3.png" alt="Pizza 3" class="img-collage img-3">
+
+            <div class="contenedor">
+                <div class="hero__contenido reveal">
+                    <span class="eyebrow">Pizzería artesanal · Desde 1984</span>
+                    <h1 class="hero__titulo">Sabor urbano, <span>alma de pizza.</span></h1>
+                    <p class="lead">
+                        En Side Street no solo hacemos pizzas: creamos momentos inolvidables.
+                        Masa fresca, horno caliente y una porción perfecta para vos.
+                    </p>
+
+                    <div class="hero__acciones">
+                        <a href="paginas/cartelera.html" class="btn btn--primary">
+                            Ver la cartelera
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        </a>
+                        <a href="paginas/nosotros.html" class="btn btn--ghost">Nuestra historia</a>
+                    </div>
+
+                    <ul class="hero__datos">
+                        <li><strong>14</strong><span>recetas de la casa</span></li>
+                        <li><strong>100%</strong><span>masa fresca diaria</span></li>
+                        <li><strong>★ 4.6</strong><span>según nuestros clientes</span></li>
+                    </ul>
+                </div>
             </div>
+
+            <span class="hero__scroll" aria-hidden="true"></span>
         </section>
 
-        <section class="ordenar-ya">
-            <div class="contenedor-fondo">
-                <h2>Pedí tu antojo al instante</h2>
-                <div class="slogan">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                        stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z" />
-                        <path d="M6.161 17.009l11.839 -.009" />
-                    </svg>
-                    <p>Sabor urbano, alma de pizza</p>
+        <!-- Cinta -->
+        <div class="cinta" aria-hidden="true">
+            <div class="cinta__track" data-loop>
+                <div class="cinta__grupo">
+                    <span>Masa fresca</span>
+                    <span>Horneada al momento</span>
+                    <span>Ingredientes locales</span>
+                    <span>Entrega rápida</span>
+                    <span>Recetas de familia</span>
+                    <span>Sabor urbano</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bienvenida -->
+        <section class="seccion">
+            <div class="contenedor bienvenida__grid">
+                <div class="bienvenida__texto reveal">
+                    <span class="eyebrow">Bienvenidos</span>
+                    <h2 class="titulo">¡Bienvenidos a <em>Side Street!</em></h2>
+                    <p class="lead" style="margin-top: 1.5rem;">
+                        Te damos la bienvenida a nuestra pizzería, donde la pasión por el sabor auténtico,
+                        los ingredientes frescos y la atención al detalle se combinan para brindarte una
+                        experiencia deliciosa en cada bocado.
+                    </p>
+                    <p class="lead">
+                        Ya sea que vengas solo, con amigos o en familia, aquí siempre encontrarás calor,
+                        sabor y una porción perfecta para vos.
+                    </p>
+
+                    <div class="bienvenida__firma">
+                        <span class="sello">EST.<br>1984</span>
+                        <div>
+                            <strong>Hecho con corazón</strong>
+                            <span>Una receta de familia que empezó en una calle lateral.</span>
+                        </div>
+                    </div>
                 </div>
 
-                <input type="submit" value="¡Ordenar Ya!" class="boton-fondo"
-                    onclick="window.location.href='paginas/cartelera.html'">
-            </div>
-        </section>
-
-        <section class="reseñas">
-            <h2>Lo que dicen nuestros clientes</h2>
-            <div class="reseñas-carousel">
-                <div class="reseñas-carousel-track">
-                    <div class="card-reseña">
-                        <p>"La mejor pizza que he probado en años. Masa perfecta y queso en su punto. ¡Repetiré sin
-                            duda!"</p>
-                        <div class="estrellas">★★★★★</div>
-                        <span>– Camila R.</span>
-                    </div>
-
-                    <div class="card-reseña">
-                        <p>"Rápido, caliente y delicioso. ¡Side Street se ha convertido en mi nuevo lugar favorito!"</p>
-                        <div class="estrellas">★★★★☆</div>
-                        <span>– Andrés M.</span>
-                    </div>
-
-                    <div class="card-reseña">
-                        <p>"Un lugar acogedor con atención de primera y una pizza que sabe a gloria. ¡Recomendado 100%!"
-                        </p>
-                        <div class="estrellas">★★★★★</div>
-                        <span>– Laura G.</span>
-                    </div>
-
-                    <div class="card-reseña">
-                        <p>"Un espacio perfecto para ir en familia, además del excelente servicio al cliente y la comida
-                            100% calidad!"
-                        </p>
-                        <div class="estrellas">★★★★★</div>
-                        <span>– Matías Q.</span>
-                    </div>
-                    <div class="card-reseña">
-                        <p>"No habia encontrado hasta ahora un lugar que se especializada en pizza a la leña como este, los mejores!"
-                        </p>
-                        <div class="estrellas">★★★★☆</div>
-                        <span>– Heidy V.</span>
-                    </div>
+                <div class="collage reveal" style="--delay: .15s">
+                    <img src="img/pizza-index1.png" alt="Pizza recién horneada" class="collage__img-1" loading="lazy">
+                    <img src="img/pizza-index2.png" alt="Porción de pizza con queso derretido" class="collage__img-2" loading="lazy">
+                    <img src="img/pizza-index3.png" alt="Pizza artesanal sobre la mesa" class="collage__img-3" loading="lazy">
+                    <div class="collage__badge"><span>Horno<br>caliente</span></div>
                 </div>
             </div>
         </section>
 
+        <!-- Por qué elegirnos -->
+        <section class="seccion razones">
+            <div class="contenedor">
+                <div class="encabezado-seccion reveal">
+                    <div>
+                        <span class="eyebrow">Lo que nos distingue</span>
+                        <h2 class="titulo">¿Por qué <em>elegirnos?</em></h2>
+                    </div>
+                    <p class="lead">Cinco razones por las que nuestros clientes vuelven una y otra vez.</p>
+                </div>
+
+                <div class="bento">
+                    <article class="bento__item bento__item--ancho bento__item--destacado reveal">
+                        <span class="bento__numero">01</span>
+                        <div class="bento__icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5 3.5 6.5a16 16 0 0 1 17 0Z" /><path d="M5.5 10a12 12 0 0 1 13 0" /><circle cx="10" cy="12.5" r="1" /><circle cx="14" cy="14" r="1" /><circle cx="12" cy="17.5" r="1" /></svg>
+                        </div>
+                        <h3>Pizzas artesanales</h3>
+                        <p>Horneadas al momento con masa fresca preparada todos los días en nuestra cocina.</p>
+                    </article>
+
+                    <article class="bento__item bento__item--ancho reveal" style="--delay: .08s">
+                        <span class="bento__numero">02</span>
+                        <div class="bento__icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z" /><path d="M2 21c0-3 1.9-5.4 5.2-6C9.6 14.5 12 13 13 12" /></svg>
+                        </div>
+                        <h3>Ingredientes frescos</h3>
+                        <p>Usamos productos locales, seleccionados con esmero por nuestro equipo.</p>
+                    </article>
+
+                    <article class="bento__item reveal">
+                        <span class="bento__numero">03</span>
+                        <div class="bento__icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2.5 2.5M9 2h6" /></svg>
+                        </div>
+                        <h3>Entrega rápida</h3>
+                        <p>Garantizamos que llegue caliente y a tiempo.</p>
+                    </article>
+
+                    <article class="bento__item reveal" style="--delay: .08s">
+                        <span class="bento__numero">04</span>
+                        <div class="bento__icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z" /><circle cx="7.5" cy="7.5" r="1.5" /></svg>
+                        </div>
+                        <h3>Precios justos</h3>
+                        <p>Combos accesibles para toda la familia.</p>
+                    </article>
+
+                    <article class="bento__item reveal" style="--delay: .16s">
+                        <span class="bento__numero">05</span>
+                        <div class="bento__icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 12 5.5 5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z" /></svg>
+                        </div>
+                        <h3>Atención cercana</h3>
+                        <p>Te atendemos como si fueras de casa.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favoritas -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="encabezado-seccion reveal">
+                    <div>
+                        <span class="eyebrow">Las más pedidas</span>
+                        <h2 class="titulo">Favoritas de <em>la casa</em></h2>
+                    </div>
+                    <a href="paginas/cartelera.html" class="btn btn--ghost">
+                        Ver toda la cartelera
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </a>
+                </div>
+
+                <div class="grid-pizzas grid-pizzas--destacadas">
+                    <article class="pizza-card reveal">
+                        <div class="pizza-card__media">
+                            <img src="img/cuatro-quesos.png" alt="Pizza Cuatro Quesos" loading="lazy">
+                            <span class="etiqueta">Clásica</span>
+                            <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                        </div>
+                        <div class="pizza-card__cuerpo">
+                            <h3>Cuatro Quesos</h3>
+                            <p>Mezcla de mozzarella, parmesano, gorgonzola y queso suizo.</p>
+                            <div class="pizza-card__pie">
+                                <span class="precio"><small>Desde</small>₡6.800</span>
+                                <a href="paginas/cartelera.html" class="btn btn--primary btn--sm">Ordenar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pizza-card reveal" style="--delay: .1s">
+                        <div class="pizza-card__media">
+                            <img src="img/pesto.png" alt="Pizza Pesto de Pollo" loading="lazy">
+                            <span class="etiqueta" data-tipo="especial">Especial</span>
+                            <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                        </div>
+                        <div class="pizza-card__cuerpo">
+                            <h3>Pesto de Pollo</h3>
+                            <p>Base de pesto casero, pollo a la parrilla, mozzarella y tomates secos.</p>
+                            <div class="pizza-card__pie">
+                                <span class="precio"><small>Desde</small>₡7.000</span>
+                                <a href="paginas/cartelera.html" class="btn btn--primary btn--sm">Ordenar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pizza-card reveal" style="--delay: .2s">
+                        <div class="pizza-card__media">
+                            <img src="img/bqq-pollo.png" alt="Pizza BBQ Pollo" loading="lazy">
+                            <span class="etiqueta" data-tipo="carnivora">Carnívora</span>
+                            <span class="etiqueta etiqueta--favorita">★ Favorita</span>
+                        </div>
+                        <div class="pizza-card__cuerpo">
+                            <h3>BBQ Pollo</h3>
+                            <p>Pollo a la parrilla, salsa BBQ, cebolla morada y mozzarella.</p>
+                            <div class="pizza-card__pie">
+                                <span class="precio"><small>Desde</small>₡6.900</span>
+                                <a href="paginas/cartelera.html" class="btn btn--primary btn--sm">Ordenar</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reseñas -->
+        <section class="seccion resenas razones">
+            <div class="contenedor">
+                <div class="encabezado-seccion reveal">
+                    <div>
+                        <span class="eyebrow">Reseñas</span>
+                        <h2 class="titulo">Lo que dicen <em>nuestros clientes</em></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carrusel reveal">
+                <div class="carrusel__track" data-loop>
+                    <figure class="resena">
+                        <div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <blockquote>“La mejor pizza que he probado en años. Masa perfecta y queso en su punto. ¡Repetiré sin duda!”</blockquote>
+                        <figcaption><span class="avatar">C</span><div>Camila R.<span>Cliente frecuente</span></div></figcaption>
+                    </figure>
+
+                    <figure class="resena">
+                        <div class="estrellas" aria-label="4 de 5 estrellas">★★★★<span class="apagada">★</span></div>
+                        <blockquote>“Rápido, caliente y delicioso. ¡Side Street se ha convertido en mi nuevo lugar favorito!”</blockquote>
+                        <figcaption><span class="avatar">A</span><div>Andrés M.<span>Pedido a domicilio</span></div></figcaption>
+                    </figure>
+
+                    <figure class="resena">
+                        <div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <blockquote>“Un lugar acogedor con atención de primera y una pizza que sabe a gloria. ¡Recomendado 100%!”</blockquote>
+                        <figcaption><span class="avatar">L</span><div>Laura G.<span>Visitó el local</span></div></figcaption>
+                    </figure>
+
+                    <figure class="resena">
+                        <div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <blockquote>“Un espacio perfecto para ir en familia, además del excelente servicio al cliente y la comida 100% calidad.”</blockquote>
+                        <figcaption><span class="avatar">M</span><div>Matías Q.<span>Visitó el local</span></div></figcaption>
+                    </figure>
+
+                    <figure class="resena">
+                        <div class="estrellas" aria-label="4 de 5 estrellas">★★★★<span class="apagada">★</span></div>
+                        <blockquote>“No había encontrado hasta ahora un lugar que se especializara en pizza a la leña como este. ¡Los mejores!”</blockquote>
+                        <figcaption><span class="avatar">H</span><div>Heidy V.<span>Cliente frecuente</span></div></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="cta reveal">
+                    <div>
+                        <span class="eyebrow">¿Con hambre?</span>
+                        <h2 style="margin-top: .9rem;">Pedí tu antojo al instante</h2>
+                        <p>Elegí tu favorita, confirmá tu pedido y nosotros nos encargamos del resto.</p>
+                    </div>
+                    <div class="cta__acciones">
+                        <a href="paginas/cartelera.html" class="btn btn--primary">
+                            ¡Ordenar ya!
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Julián Quesada Víquez. Todos los derechos reservados.</p>
+        <div class="contenedor footer__grid">
+            <div class="footer__marca">
+                <img src="img/logo.png" alt="Side Street" width="297" height="170" loading="lazy">
+                <p>Sabor urbano, alma de pizza. Pizzas artesanales horneadas al momento desde 1984.</p>
+            </div>
+            <div>
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="paginas/nosotros.html">Nosotros</a></li>
+                    <li><a href="paginas/cartelera.html">Cartelera</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Categorías</h3>
+                <ul>
+                    <li><a href="paginas/cartelera.html?categoria=clasica">Clásicas</a></li>
+                    <li><a href="paginas/cartelera.html?categoria=vegetariana">Vegetarianas</a></li>
+                    <li><a href="paginas/cartelera.html?categoria=especial">Especiales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor footer__base">
+            <p>&copy; <span data-anio>2025</span> Julián Quesada Víquez. Todos los derechos reservados.</p>
+            <p>Hecho con 🍕 y mucho código.</p>
+        </div>
     </footer>
 
-    <script src="javascript/carrusel.js"></script>
-    <script src="javascript/img.js"></script>
-    <script src="javascript/boton-nav.js"></script>
-    <script src="javascript/header-scroll.js"></script>
+    <script src="javascript/main.js"></script>
 </body>
 
 </html>
